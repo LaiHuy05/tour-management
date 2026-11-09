@@ -222,3 +222,59 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
   }
 }
+/* =========================================
+   Categories (Cards)
+   ========================================= */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden; /* Để ảnh ko bị tràn ra ngoài bo góc */
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  height: 100%; /* Cân bằng chiều cao nếu text dài ngắn khác nhau */
+}
+
+.card:hover {
+  border-color: #bfdbfe;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px); /* Hover xịn xò như phần list */
+}
+
+.card img {
+  width: 100%;
+  height: 200px; /* Fix cứng chiều cao ảnh cho các card đều nhau */
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.card .btn-primary {
+  margin-top: auto; /* Tự động đẩy nút xuống sát đáy card */
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 8px 16px;
+  transition: all 0.2s ease;
+}
+
+.card .btn-primary:hover,
+.card .btn-primary:focus-visible {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
