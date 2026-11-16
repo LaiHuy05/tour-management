@@ -12,7 +12,7 @@ export const index =async (req: Request, res: Response): Promise<void> => {
   })
 
   res.render('client/pages/categories/index', {
-    title: 'Danh mục tour',
+    pageTitle: 'Danh mục tour',
     categories: categories,
   });
 }

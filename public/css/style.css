@@ -278,3 +278,361 @@ a:focus-visible {
   border-color: var(--color-primary-dark);
   box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
 }
+
+/* =========================================
+   Enhanced UI: Tour Management
+   Overrides earlier base rules where required.
+   ========================================= */
+
+/*
+ * Tour Management — UI refresh
+ * Included directly in /public/css/style.css (no extra stylesheet needed).
+ * Compatible with Bootstrap 4.6 and Pug templates.
+ */
+
+/* --- Global polish, scoped so existing pages keep working --- */
+body {
+  background: #f5f8fc;
+  color: #17263c;
+}
+
+.header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e8edf5;
+  box-shadow: 0 3px 22px rgba(26, 45, 79, 0.06);
+}
+
+.header .inner-menu > ul > li > a {
+  border-radius: 12px;
+  transition: background-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.header .inner-menu > ul > li > a:hover {
+  background: #eaf3ff;
+  color: #175cd3;
+  transform: translateY(-1px);
+}
+
+.box-head {
+  border: 1px solid #e4ebf5;
+  border-left: 5px solid #2563eb;
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 30px rgba(28, 54, 91, .055);
+}
+
+.box-head .inner-title {
+  font-weight: 800;
+  letter-spacing: -.5px;
+}
+
+/* List of categories / tours */
+.card {
+  border: 1px solid #e5ecf5;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(15, 37, 70, 0.06);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #c6d8f4;
+  box-shadow: 0 18px 38px rgba(15, 45, 85, .13);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.card:hover img { transform: scale(1.035); }
+
+.card .card-body { padding: 22px; }
+
+.card-title {
+  min-height: 2.7em;
+  margin-bottom: 14px;
+  color: #14243c;
+  font-size: 1.18rem;
+  font-weight: 750;
+}
+
+.card .card-body > b {
+  color: #e11d48;
+  font-size: 1.28rem;
+  line-height: 1.25;
+}
+
+.card .card-body > del {
+  color: #8290a4;
+  font-size: .94rem;
+}
+
+.card .card-body > p.font-weight-bold {
+  align-self: flex-start;
+  padding: 5px 11px;
+  margin: 4px 0 14px;
+  border-radius: 999px;
+  color: #be123c;
+  background: #fff0f3;
+  font-size: .82rem;
+}
+
+.card .btn-primary {
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 11px;
+  background: linear-gradient(120deg, #2563eb, #0f87cd);
+  box-shadow: 0 7px 18px rgba(37, 99, 235, .18);
+  font-weight: 700;
+}
+
+.card .btn-primary:hover,
+.card .btn-primary:focus-visible {
+  background: linear-gradient(120deg, #1d4ed8, #0873b4);
+  box-shadow: 0 9px 22px rgba(37, 99, 235, .27);
+}
+
+/* =========================================================
+   TOUR DETAIL — compact layout similar to teacher's 28Tech demo
+   Only targets .tour-detail; category and tour listing styles stay intact.
+   ========================================================= */
+.tour-detail {
+  padding: 0 0 30px;
+  background: #fff;
+  color: #333;
+}
+
+.tour-detail .container.my-3 {
+  max-width: 1140px;
+  padding-top: 18px;
+  padding-bottom: 20px;
+}
+
+.tour-detail .container.my-3 > .row:first-child {
+  align-items: flex-start;
+}
+
+.tour-detail .container.my-3 > .row:first-child > .col-6 {
+  margin-bottom: 0;
+}
+
+/* Teacher layout: photos stacked vertically, no masonry/grid gallery. */
+.tour-detail .inner-images {
+  display: block;
+}
+
+.tour-detail .inner-image,
+.tour-detail .inner-image:first-child {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 14px;
+  padding: 10px;
+  overflow: hidden;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: none;
+}
+
+.tour-detail .inner-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 2px;
+  transition: none;
+}
+
+.tour-detail .inner-image:hover img {
+  transform: none;
+}
+
+/* Right side: plain content like the video, not a large white card. */
+.tour-detail .container.my-3 > .row:first-child > .col-6:nth-child(2) {
+  padding: 0 15px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.tour-detail .inner-title {
+  margin: 0 0 12px;
+  color: #c5223b;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+
+.tour-detail .inner-barcode,
+.tour-detail .inner-time-start,
+.tour-detail .inner-stock {
+  display: block;
+  margin: 0 0 10px;
+  color: #333;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.tour-detail .inner-barcode i,
+.tour-detail .inner-time-start i,
+.tour-detail .inner-stock i {
+  display: inline-block;
+  width: 16px;
+  margin: 0 6px 0 0;
+  color: #333;
+  font-size: 14px;
+  text-align: center;
+}
+
+.tour-detail .inner-price-special {
+  margin: 15px 0 6px;
+  color: #c5223b;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.tour-detail .inner-price {
+  margin: 0 0 6px;
+  color: #555;
+  font-size: 15px;
+  line-height: 1.5;
+  text-decoration: line-through;
+}
+
+.tour-detail .inner-percent {
+  display: block;
+  width: auto;
+  margin: 0 0 12px;
+  padding: 0;
+  color: #333;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.tour-detail form[form-add-to-cart] {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.tour-detail form[form-add-to-cart] input[type="number"] {
+  display: block;
+  width: 100%;
+  height: 38px;
+  margin-bottom: 9px !important;
+  padding: 6px 11px;
+  background: #fff;
+  color: #333;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 15px;
+  box-shadow: none;
+}
+
+.tour-detail form[form-add-to-cart] input[type="number"]:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .2);
+}
+
+.tour-detail form[form-add-to-cart] button[type="submit"] {
+  display: block;
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 12px;
+  color: #fff;
+  background: #28a745;
+  border: 1px solid #28a745;
+  border-radius: 4px;
+  box-shadow: none;
+  font-size: 15px;
+  font-weight: 400;
+  transition: background-color .15s ease;
+  cursor: pointer;
+}
+
+.tour-detail form[form-add-to-cart] button[type="submit"]:hover,
+.tour-detail form[form-add-to-cart] button[type="submit"]:focus-visible {
+  transform: none;
+  box-shadow: none;
+  filter: none;
+  background: #218838;
+  border-color: #1e7e34;
+}
+
+/* Two compact sections under images: teacher's simple bordered panels. */
+.tour-detail .container.my-3 > .row:nth-child(2) {
+  margin-top: 5px;
+}
+
+.tour-detail .inner-information {
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.tour-detail .inner-information .inner-label {
+  display: block;
+  margin: 0 0 8px;
+  padding: 0 0 8px;
+  color: #c5223b;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  border-bottom: 1px solid #ddd;
+}
+
+.tour-detail .inner-information .inner-label::before {
+  content: none;
+  display: none;
+}
+
+.tour-detail .inner-information .inner-text {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+/* Bootstrap .col-6 becomes full width on phones. */
+@media (max-width: 767.98px) {
+  .tour-detail .container.my-3 {
+    padding-top: 12px;
+  }
+
+  .tour-detail .container.my-3 > .row:first-child > .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .tour-detail .container.my-3 > .row:first-child > .col-6:nth-child(2) {
+    margin-top: 10px;
+    padding: 0 15px;
+  }
+
+  .tour-detail .inner-title {
+    font-size: 22px;
+  }
+
+  .tour-detail .inner-image,
+  .tour-detail .inner-image:first-child {
+    height: auto;
+  }
+}
