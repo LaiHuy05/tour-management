@@ -1,5 +1,6 @@
-// Lấy ra data và in ra giao diện
-fetch("http://localhost:3000/cart/list-json", {
+// vẽ ra giao diện giỏ hàng
+const drawListTour = () => {
+  fetch("http://localhost:3000/cart/list-json", {
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -45,5 +46,30 @@ fetch("http://localhost:3000/cart/list-json", {
     const elementTotal = document.querySelector("[total-price]");
 
     elementTotal.innerHTML = total.toLocaleString();
+
+    // Xử lý sự kiện xóa sản phẩm
+    deleteItemInCart();
   })
+}
+// Hết vẽ ra giao diện giỏ hàng
+
+// Xoá sản phẩm trong giỏ hàng
+const deleteItemInCart = () => {
+  const listBtnDelete = document.querySelectorAll("[btn-delete]");
+  listBtnDelete.forEach(button => {
+    button.addEventListener("click", () => {
+      const tourId = button.getAttribute("btn-delete");
+      const cart = JSON.parse(localStorage.getItem("cart"))
+      const newCart = cart.filter(item => item.tourId != tourId);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+
+      drawListTour();
+    })
+  });
+}
+// Hết Xoá sản phẩm trong giỏ hàng
+
+
+// Lấy ra data và in ra giao diện
+drawListTour();
 // Hết Lấy ra data và in ra giao diện
