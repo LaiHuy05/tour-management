@@ -96,3 +96,40 @@ const updateQuantityInCart = () => {
 // Lấy ra data và in ra giao diện
 drawListTour();
 // Hết Lấy ra data và in ra giao diện
+
+
+// Đặt Tour
+const formOder = document.querySelector("[form-order]");
+if(formOder) {
+  formOder.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const fullName = e.target.elements.fullName.value;
+    const phone = e.target.elements.phone.value;
+    const note = e.target.elements.note.value;
+
+    const cart = JSON.parse(localStorage.getItem("cart"));
+
+    const data = {
+      info: {
+        fullName: fullName,
+        phone: phone,
+        note: note,
+      },
+      cart: cart
+    };
+
+    fetch("/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      })
+  })
+}
+// Hết Đặt Tour
