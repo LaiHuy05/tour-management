@@ -1,8 +1,10 @@
 import express, {Express} from "express";
 import dotenv from "dotenv";
 import clientRoutes from "./routes/client/index-route";
+import adminRoutes from "./routes/admin/index-route";
 import moment from "moment";
 import bodyParser from "body-parser";
+import { systemConfig } from "./config/system";
 
 dotenv.config();
 
@@ -18,10 +20,15 @@ app.set("view engine", "pug");
 
 // APP locals
 app.locals.moment = moment;
+app.locals.prefixAdmin = systemConfig.prefixAdmin;
 
 
 // client routes
 clientRoutes(app);
+
+
+// admin routes
+adminRoutes(app);
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
