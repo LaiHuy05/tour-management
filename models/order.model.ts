@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/database";
 
-const Order = sequelize.define("Order", {
+const Order = sequelize.define("order", {
    id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
