@@ -5,6 +5,7 @@ import adminRoutes from "./routes/admin/index-route";
 import moment from "moment";
 import bodyParser from "body-parser";
 import { systemConfig } from "./config/system";
+import path from "path";
 
 dotenv.config();
 
@@ -18,6 +19,10 @@ app.use(express.static("public"));
 
 app.set("views", "./views");
 app.set("view engine", "pug");
+
+// tinyMCE
+app.use("/tinymce",
+  express.static(path.join(__dirname, "node_modules", "tinymce")));
 
 // APP locals
 app.locals.moment = moment;
