@@ -6,4 +6,11 @@ export const generateOrderCode = (number: number): string => {
   // padStart(8, "0"): thêm các ký tự "0" vào đầu chuỗi để đảm bảo độ dài của chuỗi là 8 ký tự
  // Ví dụ: nếu number = 123 , kết quả sẽ là "OD00000123"
   return code;
+};
+
+
+// Generate mã tour
+export const generateTourCode = (number: number): string => {
+  const code = `TOUR${String(number).padStart(6, "0")}`;
+  return code;
 }
